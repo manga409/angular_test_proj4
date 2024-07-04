@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { ServerStatusComponent } from './dashboard/server-status/server-status.component';
-import { TrafficComponent } from './dashboard/traffic/traffic.component';
-import { TicketsComponent } from './dashboard/tickets/tickets.component';
-import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-item.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  imports: [
-    HeaderComponent,
-    ServerStatusComponent,
-    TrafficComponent,
-    TicketsComponent,
-    DashboardItemComponent,
-  ],
+  styleUrl: './app.component.css'
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'my-app';
+}
