@@ -1,26 +1,13 @@
-import { Component, computed, inject } from '@angular/core';
-import { AuthComponent } from './auth/auth.component';
-import { LearningResourcesComponent } from './learning-resources/learning-resources.component';
-import { AuthService } from './auth/auth.service';
-import { NgIf } from '@angular/common';
-import { AuthDirective } from './auth/auth.directive';
-import { LogDirective } from './log.directive';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [
-    AuthComponent,
-    LearningResourcesComponent,
-    NgIf,
-    AuthDirective,
-    LogDirective,
-  ],
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  private authService = inject(AuthService);
-
-  isAdmin = computed(() => this.authService.activePermission() === 'admin');
+  title = 'my-app';
 }
